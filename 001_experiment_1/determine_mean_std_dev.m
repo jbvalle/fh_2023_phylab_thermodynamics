@@ -9,7 +9,7 @@ mfile = "msr/msr1.ods";
 
 data = odsread(mfile);
 
-dT_dt = data(:, 4);
+dT_dt = data(:, 3);
 dT_dt_mean = mean(dT_dt);
 dT_dt_std_dev = std(dT_dt);
 
