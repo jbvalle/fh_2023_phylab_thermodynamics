@@ -1,0 +1,27 @@
+
+mean and std_dev calculation ongoing...
+###################################
+# EXP1: MEAN & STANDARD DEVIATION #
+###################################
+[Exp1: dT_dt: Mean]0.023333K/s
+[Exp1: dT_dt: Std_Dev]0.035312K/s
+
+heat capacity calculation ongoing...
+##############################
+# EXP1: Heat Capacity Water  #
+##############################
+[Exp1: Heat Capacity Water [J/kg°C]]4166.6667[J]/[kg °C]
+[Exp1: Heat Capacity Water [J/g°C]]4.1667[J]/[g °C]
+
+###################################
+# EXP2: Heat Capacity Solid Body  #
+###################################
+[Exp2: Heat Capacity Water [J/g°C]]30.59[J]/[g °C]
+[Exp2: Heat Capacity Water [J/g°C]]30590[J]/[kg °C]
+
+
+Processing Linear Regression ...
+###########################
+# EXP1: Linear Regression #
+###########################
+Linear Equation: y = 0.03x + 21.09
