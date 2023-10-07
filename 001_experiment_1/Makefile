@@ -1,4 +1,4 @@
-all: mean hcapacity lin
+all: mean hcapacity err_prop lin
 
 mean: FORCE
 	@echo ""
@@ -16,6 +16,16 @@ hcapacity: FORCE
 	@echo "##############################"
 	@octave determine_heat_capacity_water.m
 
+
+err_prop: FORCE
+	@echo ""
+	@echo ""
+	@echo "Calculating Error Propagation Water Heat Capacity ..."
+	@echo "###############################################"
+	@echo "# EXP1: Error Propagation Water Heat Capacity #"
+	@echo "###############################################"
+	@octave error_propagation_c_water.m
+
 lin: FORCE
 	@echo ""
 	@echo ""
@@ -24,6 +34,7 @@ lin: FORCE
 	@echo "# EXP1: Linear Regression #"
 	@echo "###########################"
 	@octave --persist linear_regression.m
+
 
 FORCE:
 

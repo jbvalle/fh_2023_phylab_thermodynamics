@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pakete
+\documentclass[10pt,a4paper]{article}
+
+%Schrift-Packages_7
+\usepackage{textcomp}
+\usepackage{fixltx2e}
+\usepackage[ngerman]{babel}		%% neue deutsche Rechtschreibung
+\usepackage[utf8x]{inputenc}    %% fügt Umlaute hinzu
+\PrerenderUnicode{ä}            %% für Umlaute auf der Titelseite 
+\PrerenderUnicode{ö}
+\PrerenderUnicode{ü}
+\PrerenderUnicode{ß}
+\usepackage[T1]{fontenc}        %% for selecting font encodings
+\usepackage{lmodern}            %% besseres Schriftbild für PDFs
+\usepackage{ucs}                %% extended UTF-8 input encoding support
+
+\usepackage{amssymb}            %% extended math symbol collection
+\usepackage{amsmath}            %% miscellaneous enhancements for formulas   
+\usepackage{graphicx}           %% für das Einfügen von Bildern
+\usepackage{pdfpages}           %% für das Einbinden von PDFs
+
+
+
+\usepackage{geometry}           %% Gestaltung einer Seite
+\geometry{a4paper}              %% Voreinstellung für A4-Seiten
+
+\usepackage{booktabs}           %% enhances the quality of tables
+\usepackage{float}              %% Improves the interface for defining floating objects such as figures and tables
+\usepackage[absolute]{textpos}  %% facilitate placement of boxes at absolute positions
+\usepackage{ulem}               %% Unterstreichen von Absätzen
+
+\usepackage[skins]{tcolorbox}   %% environment for coloured and framed text boxes
+
+\usepackage{subfigure}          %% manipulation and reference of small or 'sub' figures and tables 
+
+\usepackage{titling}            %% control over the typesetting of the \maketitle command and \thanks commands
+
+\usepackage{fancyhdr}           %% control of page headers and footers
+
+\definecolor{fh_green}{RGB}{121,167,24}     %% FH-Farben werden hier definiert
+\definecolor{fh_grey}{RGB}{95,100,103}
+\definecolor{fh_blue}{RGB}{10,79,138} 
+
+\pagestyle{fancy}               
+\fancyhead[R]{\leftmark}        %% Voreinstellung der Kopfzeile
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%% Hier Kapitel, Titel, AutorInnen, Studiengang, Lehrveranstaltung, BetreuerIn und Erstellungsdatum angeben: %%%
+
+\newcommand{\thema}{Fehlerfortpflanzung Berechnung}
+\title{Labor Übung Thermodynamik: Fehlerfortpflanzung Wärme Kapazität}
+\author{John Bryan Valle, Paulus Summer}
+\newcommand{\studiengang}{Elektronik}
+\newcommand{\lehrveranstaltung}{PHYLAB}
+\newcommand{\betreuerin}{Brigitte Waldmann MEd.}
+\newcommand{\erstellungsdatum}{07.10.2023}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Doument (Anfang)
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titelseite (Anfang)
+\begin{titlepage}
+
+\begin{textblock}{3}(-0.4,0)
+\includegraphics{bilder/Deckblatt.pdf}
+\end{textblock}
+%Titel
+\mbox{}
+
+\begin{textblock}{8}(2,3)
+
+\noindent \Huge \textbf{\thema}
+
+\noindent \Huge  \thetitle
+\end{textblock}
+
+%Author & Datum
+\begin{textblock}{12.5}(1.5,11.5)
+
+\Large Erstellt von: \hfill \theauthor
+
+\Large Studiengang: \hfill \studiengang
+
+\Large Lehrveranstaltung: \hfill \lehrveranstaltung
+
+\Large BetreuerIn: \hfill \betreuerin
+
+\Large Wien, am \erstellungsdatum 
+\end{textblock}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titelseite (Ende)
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Inhaltsverzeichnis (Anfang)
+\thispagestyle{plain}
+\tableofcontents
+%%%%ö%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Inhaltsverzeichnis (Ende)
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Inhalt (Anfang)
+
+\section{Fehlerfortpflanzung: Herleitung $c_w$ auf Basis der Beziehung zwischen Potentiellen Leistung $U$ und der Wärme Energie $Q$}
+\begin{equation}
+    Q = m c \Delta T
+\end{equation}
+
+\begin{equation}
+    c_w = \frac{Q}{m_w \Delta T}
+\end{equation}
+
+\begin{equation}
+    c_w = \frac{P t}{m_w \Delta T}
+\end{equation}
+
+\begin{equation}
+    c_w = \frac{\frac{U^2}{R}}{m_w \frac{\Delta T}{t}}
+\end{equation}
+
+\begin{equation}
+    c_w = \frac{U^2}{R m_w \frac{\Delta T}{t}}
+\end{equation}
+
+\subsection{Partielle Ableitung nach U}
+
+\begin{equation}
+    \frac{\partial c_w}{\partial U} = \frac{2 U}{R m_w \frac{\Delta T}{\Delta t}}
+\end{equation}
+
+\subsection{Partielle Ableitung nach $\frac{\Delta T}{\Delta t}$}
+
+\begin{equation}
+    \frac{\partial c_w}{\partial \frac{\Delta T}{\Delta t}} = - \frac{U^2}{R m_w \frac{\Delta T}{\Delta t}^2}
+\end{equation}
+
+\subsection{Fehlerfortpflanzung $c_w$}
+
+\begin{itemize}
+    \item $\bar{U} = \left( 0.013 \pm 0.006 \right) \left[\frac{K}{s}\right]$
+    \item $\bar{\frac{\Delta T}{\Delta t}} = \left( 3.65 \pm 0.04 \right) \left[ V  \right]$
+    \item $R = 1.7 \left[ \Omega \right]$
+    \item $m_w = 132.1 \left[ g \right]$
+\end{itemize}
+
+\begin{equation}
+    \sigma_{c_w} = \sqrt{ \left(\frac{\partial c_w}{\partial U}\right)^2 \sigma_U^2 + \left(\frac{\partial c_w}{\partial \frac{\Delta T}{\Delta t}} \right)^2 \sigma_{\frac{\Delta T}{\Delta t}}^2} 
+\end{equation}
+
+\begin{equation}
+    \sigma_{c_w} = 1.9196 \left[\frac{J}{g K}\right] \approx 2 \left[\frac{J}{g K}\right]
+\end{equation}
+
+\centerline{\fbox{\colorbox{fh_green}{$c_{\text{water}} = \left( 5 \pm 2   \right) \left[ \frac{J}{g K}\right]$}}}
+
+
+\section{Fehlerfortpflanzung: Herleitung $c_{\text{solid body}}$ auf Basis des ersten Thermodynamischen Gesetzes}
+
+\begin{equation}
+    \Delta Q_{\text{water}} \approx  \Delta Q_{\text{solid}}
+\end{equation}
+
+\begin{equation}
+    m_w c_w (T_{\text{Eq}} - T_w) = m_{\text{solid}} c_{\text{solid}} (T_{\text{solid}} - T_{\text{Eq}})
+\end{equation}
+
+\subsection{Partielle Ableitung nach $c_w$}
+
+\begin{equation}
+    \frac{\partial c_{\text{solid}}}{\partial c_w} = \frac{m_w (T_{\text{Eq}} - T_w)}{m_{\text{solid}} (T_{\text{solid}} - T_{\text{Eq}})
+}
+\end{equation}
+
+\subsection{Fehlerfortpflanzung $c_{solid}$}
+
+\begin{itemize}
+    \item $m_w = 120.5 [g]$
+    \item $m_{solid} = 128.8 [g]$
+    \item $T_{Eq} = 12.7 [^{\circ} C]$
+    \item $T_w = 13.9 [^{\circ} C]$
+    \item $T_{solid} = 13.9 [^{\circ} C]$
+\end{itemize}
+
+\begin{equation}
+    \sigma_{c_{solid}} = \sqrt{ \left(\frac{\partial c_{solid}}{\partial c_w}\right)^2 \sigma_{solid}^2}
+\end{equation}
+
+\begin{equation}
+    \sigma_{c_{solid}} \approx 0.12 \left[\frac{J}{g K}\right]
+\end{equation}
+
+\centerline{\fbox{\colorbox{fh_green}{$c_{solid} = \left(0.25 \pm 0.12\right) \left[\frac{J}{g K}\right]$}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Inhalt (Ende)
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Dokument (Ende)

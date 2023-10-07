@@ -10,18 +10,36 @@ heat capacity calculation ongoing...
 ##############################
 # EXP1: Heat Capacity Water  #
 ##############################
+[Exp1: Mean of U]3.6533[V]
+[Exp1: Std Dev of U]0.030056[V]
 [Exp1: Heat Capacity Water [J/kg°C]]4566.1856[J]/[kg °C]
 [Exp1: Heat Capacity Water [J/g°C]]4.5662[J]/[g °C]
+
+
+Calculating Error Propagation Water Heat Capacity ...
+###############################################
+# EXP1: Error Propagation Water Heat Capacity #
+###############################################
+[Exp1: c_water]4.5662[J / g * K]
+[Exp1: Error Propagation c_water std_deviation]1.9196[J / g * K]
 
 ###################################
 # EXP2: Heat Capacity Solid Body  #
 ###################################
-[Exp2: Heat Capacity Water [J/g°C]]0.24754[J]/[g °C]
-[Exp2: Heat Capacity Water [J/g°C]]247.5404[J]/[kg °C]
+[Exp2: Heat Capacity Brass Solid Body]0.24754[J]/[g °C]
+[Exp2: Heat Capacity Brass Solid Body]247.5404[J]/[kg °C]
+
+
+Calculating Error Propagation Solid Body Heat Capacity ...
+####################################################
+# EXP2: Error Propagation Solid Body Heat Capacity #
+####################################################
+[Exp2: Error Propagation c_solid_body]0.24754[J / g * K]
+[Exp2: Error Propagation c_solid_body std_deviation]0.11352[J / g * K]
 
 
 Processing Linear Regression ...
 ###########################
 # EXP1: Linear Regression #
 ###########################
-Linear Equation: y = 0.01x + 20.63
+Linear Equation: y = 0.014x + 20.626

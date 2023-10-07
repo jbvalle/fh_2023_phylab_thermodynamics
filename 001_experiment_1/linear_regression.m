@@ -54,5 +54,5 @@ grid on;
 hold off;
 %
 %% Output the linear equation
-fprintf('Linear Equation: y = %.2fx + %.2f\n', k, d);
+fprintf('Linear Equation: y = %.3fx + %.3f\n', k, d);
 
